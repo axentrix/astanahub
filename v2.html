@@ -130,6 +130,7 @@ section{height:100vh;
 
 
 .btn{display: flex;
+  transition:all 0.3s;
 height: 40px;
 width:100%;
 padding: var(--rem-500, 8px) var(--rem-1000, 16px);
@@ -138,7 +139,7 @@ align-items: center;
 gap: var(--rem-500, 8px);
 align-self: stretch;
 border-radius: var(--border-radius-sm, 8px);
-background: var(--surface-brand-background, #2C9D62);
+background: var(--surface-brand-background, rgba(44,157,98,1));
 
 color:#ffffff;
 text-decoration:none;
@@ -152,8 +153,11 @@ text-decoration:none;
 .coin-animation.play{
   z-index:9;
 }
+.btn:hover{
 
-.btn.squeeze{
+  background:rgba(44,157,98,0.6);
+}
+.btn.squeeze{background: --surface-brand-background;
   animation: center-animate 2s ease;
 }
 .animation1{width:300px;
@@ -171,7 +175,7 @@ text-decoration:none;
     80%{transform: scaleX(0.2);
       opacity:0}
     100% { transform: scaleX(1);
-      border-radius:--var(border-radius);
+      border-radius:--border-radius-sm;
     opacity:1;}
 }
       </style>
