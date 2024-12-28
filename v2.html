@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    
+    <title>Moment</title>  
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+      section{
+  display:flex;
+  min-height:100vh;
+  position:relative;
+  justify-content:center;
+}
+body{
+    background:#DCE6ED;
+}
+body,div,p, h1,h2,h3,h4,h5{
+  font-family:"Mulish", sans-serif;
+}
+
+#section-zero {
+   height:60vh;
+min-height:unset !important;
+}
+
+#section-one .column{
+    min-height:300vh;
+ 
+
+}
+#section-between .column{
+    min-height:100vh;
+
+}
+
+#section-two .column{
+    min-height:300vh;
+}
+
+.progress{
+  
+}
+
+#section-between .column{
+    height:unset;
+}
+.section-zero{
+
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+}
+.benefits{
+    width:50%;
+}
+ul{
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+ul li{
+  display:flex;
+  align-items:center;
+  cursor:pointer;
+  margin-bottom:24px;
+}
+.activediv{
+  background:#C4DEF3;
+  width:32px;
+  min-width:32px;
+  height:32px;
+  border-radius:50%;
+  margin-right:12px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.progress.d-grey .activediv{
+  background:#C4DEF3;
+}
+.progress.passed .activediv{
+  background:#278FDE;
+}
+
+.roads-animation0, .roads-animation1, .roads-animation2, .roads-animation3{
+ position:absolute;
+ top:0;
+max-width:400px;
+  display:block;
+
+}
+@media (orientation:portrait){
+  
+
+#container{
+  width:100%;
+  height:100%;
+}
+}
+.animation{
+ 
+   
+}
+#section-one{
+  background:#DCE6ED;
+  align-items:center;
+}
+#section-two{
+  background:#DCE6ED url(images/glow.png) 0 0 no-repeat;
+  align-items:center;
+}
+
+.text-blue{
+    color:#278FDE;
+}
+
+section{height:100vh;
+    align-items:center;
+}
+
+.d-flex{display:flex;}
+.align-items-center{
+    align-items:center;
+}
+
+
+
+
+.btn{display: flex;
+height: 40px;
+width:100%;
+padding: var(--rem-500, 8px) var(--rem-1000, 16px);
+justify-content: center;
+align-items: center;
+gap: var(--rem-500, 8px);
+align-self: stretch;
+border-radius: var(--border-radius-sm, 8px);
+background: var(--surface-brand-background, #2C9D62);
+
+color:#ffffff;
+text-decoration:none;
+
+}
+.coin-animation{
+  position:absolute;
+
+  z-index:-1;
+}
+.coin-animation.play{
+  z-index:9;
+}
+
+.btn.squeeze{
+  animation: center-animate 2s ease;
+}
+.animation1{width:300px;
+  position:relative;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+@keyframes center-animate {
+    0% { transform: scaleX(0.2) }
+    20% { border-radius:50% }
+
+    60%{transform: scaleX(0.2);
+    opacity:0}
+    80%{transform: scaleX(0.2);
+      opacity:0}
+    100% { transform: scaleX(1);
+      border-radius:--var(border-radius);
+    opacity:1;}
+}
+      </style>
+
+</head>
+<body class="loading">
+ 
+
+
+<section id="section-one" class="has-animation">
+  
+  <div class="animation1">
+
+
+<a href="#" class="btn">Continue</a>
+
+    <div id="container"  class="container coin-animation" data-json="data200.json" data-duration="8"></div>
+ 
+</div>
+
+
+</section>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  
+
+<script src="https://unpkg.com/@lottiefiles/lottie-player@1.3.1/dist/lottie-player.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
+<script src="https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+ 
+   
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
+   
+    
+
+    
+
+    
+  
+
+
+
+<script>
+ 
+
+
+ let coinforward = document.querySelector('.coin-animation');
+ let coinbutton = document.querySelector('.btn');
+
+ function doStuffwTimeout(){
+  setTimeout(function(){
+    coinforward.classList.remove("play");
+    coinbutton.classList.remove("squeeze");
+  },2000);
+}
+
+
+
+let animationSkipForward = bodymovin.loadAnimation({
+        container: coinforward,
+        renderer: 'svg',
+        loop: false,
+        autoplay: false,
+        path: "data200.json"
+});
+
+  coinbutton.addEventListener('click', function() {
+    console.log("clicked");
+    coinforward.classList.add("play");
+    coinbutton.classList.add("squeeze");
+  animationSkipForward.goToAndPlay(0, true);
+  doStuffwTimeout();
+
+});
+
+          </script>
+</body>
+</html>
